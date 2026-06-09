@@ -17,3 +17,11 @@ More to come soon!
 Just doing some light dabbling around this morning, so far I've added support for
 setting the preferred codec. This is a fun project!
 
+6/9/2026-
+
+Today I just set some more default and custom options and set up argparse
+options for them, nothing crazy. I have the rate limit pretty high playing
+around and need to lower it back down to something sane, but that's no big
+deal!
+
+I should probably just go and do that now.
