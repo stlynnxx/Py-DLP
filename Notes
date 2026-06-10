@@ -25,3 +25,14 @@ around and need to lower it back down to something sane, but that's no big
 deal!
 
 I should probably just go and do that now.
+
+6/10/2026-
+
+I'm running into some issues with cookie extraction, in that it doesn't seem to want
+to work properly for anything beyond firefox with the way that I currently have it
+written. I'm sure that i'll be able to sort that out eventually.
+
+I've added some more options in both the standard opts and custom opts so far this
+morning, as well as the corrosponding arguments. I need to rethink my approach to a few
+of the custom options.
+
