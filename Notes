@@ -36,3 +36,9 @@ I've added some more options in both the standard opts and custom opts so far th
 morning, as well as the corrosponding arguments. I need to rethink my approach to a few
 of the custom options.
 
+6/11/2026-
+
+I barely have any time to be in here this morning as this is a quite busy week for me
+on the personal side of things, but I did clean up some of the work from yesterday,
+and add some options to the playlist dict and corrosponding logic. It wasn't much work,
+but it was progress!
