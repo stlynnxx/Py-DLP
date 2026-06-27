@@ -80,20 +80,7 @@ for browser in browsers:
     except Exception:
         continue
 
-custom_opts = {
-    'outtmpl' : os.path.join(down_path, '%(title)s.%(ext)s'),
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': cus_form,
-    }],
-    'retries': retry_val,
-    'socket_timeout': timeout_val,
-    'ratelimit': rate_val,
-    'username': user_user,
-    'password': user_pass,
-    #'cookiefile': cookie_file_path,
-    'addmetadata': meta_data
-}
+
 
 playlist_opts = {
     'outtmpl' : os.path.join(down_path, '%(title)s.%(ext)s'),
@@ -122,20 +109,34 @@ if setup:
 
 # Format setting
 if args.format:
-    match args.format:
-        case 'flac':
-           cus_form = "flac"
-        case 'wav':
-          cus_form = "wav"
-        case 'mp3':
-           cus_form = "mp3"
-        case 'mp4':
-            cus_form = "mp4"
-        case 'opus':
-            cus_form = "opus"
-        case _:
-            sys.stderr.write("Invalid format")
-            sys.exit(1)
+    cus_form = args.format
+    custom_opts = {
+        'outtmpl': os.path.join(down_path, '%(title)s.%(ext)s'),
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': cus_form,
+        }],
+        'retries': retry_val,
+        'socket_timeout': timeout_val,
+        'ratelimit': rate_val,
+        'username': user_user,
+        'password': user_pass,
+        # 'cookiefile': cookie_file_path,
+        'addmetadata': meta_data
+    }
+    if cus_form == 'mp4':
+        custom_opts['format'] = 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'
+        custom_opts['postprocessors'] = [{
+            'key': 'FFmpegVideoConvertor',
+            'preferedformat': 'mp4',
+        }]
+    else:
+        custom_opts['format'] = 'bestaudio/best'
+        custom_opts['postprocessors'] = [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': cus_form,
+        }]
+    sys.exit(0)
 
 # Single Download Logic
 if args.single:
