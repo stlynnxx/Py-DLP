@@ -3,6 +3,7 @@ import sys
 import platform
 import yt_dlp
 import os
+import subprocess
 
 
 # OS Discovery
@@ -18,6 +19,7 @@ cus_form = ""
 
 # argparse config
 parser = argparse.ArgumentParser(prog="Py-DLP",description='Python Media Downloader')
+parser.add_argument("-setup", help="Setup script for fresh installs", action="store_true")
 parser.add_argument("-single", help='Single download', action='store_true')
 parser.add_argument("-download", help='Local download location', action='store_true') # Not being implemented immediately
 parser.add_argument("-playlist", help='Playlist download', action='store_true')
@@ -28,7 +30,7 @@ parser.add_argument("-timeout", help="Timeout count", type=int, default=20)
 parser.add_argument("-ratelim", help="Ratelimit value, default 100000000", type=int, default=10000000)
 parser.add_argument("-username", help="Define Username", type=str)
 parser.add_argument("-pswd", help="Define Password", type=str)
-parser.add_argument("cookiefile", help="This is for passing the path to the desired cookie file", type=str)
+#parser.add_argument("cookiefile", help="This is for passing the path to the desired cookie file", type=str)
 parser.add_argument("-max", help="Sets max download limit for playlist downloading; default is 25", type=str, default=25)
 parser.add_argument("-thumbnail", help="Choosing to write the thumbnail to file or not, default is true.", action='store_true', default=True)
 parser.add_argument("-subs", help="Choosing to write subtitles to file or to not, default is True.", action='store_true', default=True)
@@ -44,8 +46,9 @@ rate_val = args.ratelim
 user_user = args.username
 user_pass = args.pswd
 max_val = args.max
-cookie_file_path = args.cookiefile
+#cookie_file_path = args.cookiefile
 meta_data = args.metadata
+setup = args.setup
 
 # Options
 # Browser List
@@ -61,11 +64,11 @@ std_opts = {
     'retries': 4,
     'socket_timeout': 20,
     'ratelimit': 100000000,
-    'cookiesfrombrowser': ('firefox',),
+    'cookiesfrombrowser': ('brave',),
     'geobypass': True,
     'writethumbnail': True,
     'writesubtitles': True,
-    'embededsubtitles': True,
+    'embeddedsubtitles': True,
     'addmetadata': True,
 
 }
@@ -88,7 +91,7 @@ custom_opts = {
     'ratelimit': rate_val,
     'username': user_user,
     'password': user_pass,
-    'cookiefile': cookie_file_path,
+    #'cookiefile': cookie_file_path,
     'addmetadata': meta_data
 }
 
@@ -103,12 +106,19 @@ playlist_opts = {
     'ratelimit': rate_val,
     'username': user_user,
     'password': user_pass,
-    'cookiefile': cookie_file_path
+    #'cookiefile': cookie_file_path
 }
-
+def run_setup():
+    setup_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'setup.sh')
+    if not os.path.exists(setup_path):
+        print("setup.sh not found")
+        return
+    subprocess.run(['sudo', 'bash', setup_path])
 # OS Check
 if os_name != "Windows":
     std_opts['windowsfilenames'] = False
+if setup:
+    run_setup()
 
 # Format setting
 if args.format:
