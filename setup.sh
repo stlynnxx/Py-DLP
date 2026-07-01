@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ -f ~/.config/yt-dlp/config ]; then
+    echo "Existing yt-dlp config found, skipping to avoid overwriting."
+    echo "Add '--js-runtimes node' to ~/.config/yt-dlp/config manually if needed."
+else
+    mkdir -p ~/.config/yt-dlp
+    cp yt-dlp.conf ~/.config/yt-dlp/config
+    echo "yt-dlp configured."
+fi
+
+
 if [ "$EUID" -ne 0 ]; then
     echo "Please run setup as root: sudo ./setup.sh"
     exit 1

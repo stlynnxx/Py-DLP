@@ -70,7 +70,7 @@ std_opts = {
     'writesubtitles': True,
     'embeddedsubtitles': True,
     'addmetadata': True,
-
+    'extractor_args': {'youtube': {'js_runtimes': ['node']}}
 }
 
 for browser in browsers:
@@ -136,7 +136,7 @@ if args.format:
             'key': 'FFmpegExtractAudio',
             'preferredcodec': cus_form,
         }]
-    sys.exit(0)
+
 
 # Single Download Logic
 if args.single:
@@ -147,10 +147,12 @@ if args.single:
         custom_opts['embed'] = args.embed
         with yt_dlp.YoutubeDL(custom_opts) as ydl:
             ydl.download([url])
+            print("args.single if")
             sys.exit(0)
     else:
         with yt_dlp.YoutubeDL(std_opts) as ydl:
             ydl.download([url])
+            print("Args.single else")
             sys.exit(0)
 
 # Playlist Download Logic
