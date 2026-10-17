@@ -168,16 +168,16 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 - Unit test coverage for edge cases
 
 ## FAQ
-Q: Can I download entire channels?
+Q: Can I download entire channels?\
 A: Yes, use the playlist URL with -max set to desired count. Example: python py-dlp.py -playlist "CHANNEL/videos" -max 100.
 
-Q: Does this violate YouTube's Terms of Service?
+Q: Does this violate YouTube's Terms of Service?\
 A: This is a tool for extracting publicly available content. Use responsibly and respect copyright laws in your jurisdiction.
 
-Q: Why do I need Node.js?
+Q: Why do I need Node.js?\
 A: Recent yt-dlp versions require a JavaScript runtime to parse YouTube's encrypted signatures. Node.js, Deno, or undici work.
 
-# Q: Where do files get saved?
-# A: By default to ~/Downloads. Change with -savedir ~/Custom/Path.
+Q: Where do files get saved?\
+A: By default to ~/Downloads. Change with -savedir ~/Custom/Path.
 
 
