@@ -1,0 +1,28 @@
+cat >> .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+.env/
+
+# Project-specific
+Downloads/
+*.mp4
+*.mp3
+*.flac
+*.wav
+*.opus
+.thumbnails/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+EOF
