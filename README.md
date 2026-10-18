@@ -68,6 +68,15 @@ Double-click activate.bat to open a terminal window with the virtual environment
 |-nocs | Extract cookies from browser |	disabled |
 |-setup |	Run installer script | false |
 
+
+## Donations
+I am physically disabled and do this and hardware repair to support myself; if you feel generous and 
+can afford to do so, every penny helps out! 
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H5F5269IH4)
+
+
+
 # Common workflows
 
 ## High-quality music (lossless)
@@ -158,17 +167,17 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 - Docker container for easy deployment
 - Unit test coverage for edge cases
 
-### FAQ
-## Q: Can I download entire channels?
-## A: Yes, use the playlist URL with -max set to desired count. Example: python py-dlp.py -playlist "CHANNEL/videos" -max 100.
+## FAQ
+Q: Can I download entire channels?\
+A: Yes, use the playlist URL with -max set to desired count. Example: python py-dlp.py -playlist "CHANNEL/videos" -max 100.
 
-## Q: Does this violate YouTube's Terms of Service?
-## A: This is a tool for extracting publicly available content. Use responsibly and respect copyright laws in your jurisdiction.
+Q: Does this violate YouTube's Terms of Service?\
+A: This is a tool for extracting publicly available content. Use responsibly and respect copyright laws in your jurisdiction.
 
-## Q: Why do I need Node.js?
-## A: Recent yt-dlp versions require a JavaScript runtime to parse YouTube's encrypted signatures. Node.js, Deno, or undici work.
+Q: Why do I need Node.js?\
+A: Recent yt-dlp versions require a JavaScript runtime to parse YouTube's encrypted signatures. Node.js, Deno, or undici work.
 
-## Q: Where do files get saved?
-## A: By default to ~/Downloads. Change with -savedir ~/Custom/Path.
+Q: Where do files get saved?\
+A: By default to ~/Downloads. Change with -savedir ~/Custom/Path.
 
 
