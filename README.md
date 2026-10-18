@@ -1,4 +1,4 @@
-# Py-DLP — Python Media Downloader
+# dwnloaderr - A Python Media Downloader
 
 A command-line media downloader built with `yt-dlp`, with cross-platform GUI helpers for beginners. Download videos, audio, and playlists from YouTube and many other platforms in multiple formats.
 
