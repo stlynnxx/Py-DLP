@@ -66,4 +66,10 @@ think I'm gonna throw together a readme next and then finally make the repo publ
 
 It's the neglected child of my projects, but I would like to be able to use it personally so I'm here this morning.
 
-!
+10/18/2026-
+
+Added today-
+
+- Custom download path with directory creation
+- New organized project structure
+- Verbage fix in download.sh

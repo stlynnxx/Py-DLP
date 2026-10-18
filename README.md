@@ -9,7 +9,7 @@ A command-line media downloader built with `yt-dlp`, with cross-platform GUI hel
 | Platform | Command |
 |----------|---------|
 | **Windows** | Double-click `setup.bat` |
-| **Linux/macOS** | `./setup.sh` |
+| **Linux/macOS** | `setup.sh` |
 
 This installs Python, Node.js, FFmpeg, and creates a virtual environment automatically.
 
@@ -18,7 +18,7 @@ This installs Python, Node.js, FFmpeg, and creates a virtual environment automat
 | Platform | Command |
 |----------|---------|
 | **Windows** | Double-click `download.bat` or `run.bat` |
-| **Linux/macOS** | `./download.sh` |
+| **Linux/macOS** | `download.sh` |
 
 Both open a dialog box where you paste the URL and choose the format.
 

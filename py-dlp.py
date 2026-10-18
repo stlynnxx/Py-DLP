@@ -1,13 +1,19 @@
 import argparse
 import sys
 import platform
+from pathlib import Path
+
 import yt_dlp
 import os
 import subprocess
 import shutil
+try:
+    import updatehelpers
+except ImportError:
+    updatehelpers = None
 
 # Version tracking
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 # OS Discovery
 os_name = platform.system()
@@ -21,9 +27,9 @@ output_dir = down_path
 
 # argparse config
 parser = argparse.ArgumentParser(prog="Py-DLP", description=f'Python Media Downloader v{__version__}')
-parser.add_argument("-setup", help="Setup script for fresh installs", action="store_true")
+parser.add_argument("-setup",  help="Setup script for fresh installs", action="store_true")
 parser.add_argument("-single", help='Single download', action='store_true')
-parser.add_argument("-download", help='Local download location', action='store_true')
+parser.add_argument("-download", "-d", help='Output directory path', type=str, default=None)
 parser.add_argument("-playlist", help='Playlist download', action='store_true')
 parser.add_argument("url", type=str, nargs='?', help="Input URL (QUOTE IT if it has &)")
 parser.add_argument("-format", choices=["flac", "wav", "mp3", "mp4", "opus"], help='Download Format')
@@ -38,10 +44,11 @@ parser.add_argument("-nosubs", help="Disable subtitles (default: Enabled)", acti
 parser.add_argument("-noembed", help="Disable embedded subtitles (default: Enabled)", action='store_true',
                     default=False)
 parser.add_argument("-nometa", help="Disable metadata (default: Enabled)", action='store_true', default=False)
-parser.add_argument("-savedir", "-sd", help="Custom output directory", type=str, default=None)
+# parser.add_argument("-savedir", "-sd", help="Custom output directory", type=str, default=None)
 parser.add_argument("-cf", "--cookiefile", help="Path to cookie file", type=str, default=None)
 parser.add_argument("-nocs", "--no-cookies-from-browser", help="Enable cookie extraction from browser",
                     action='store_true', default=False)
+parser.add_argument("-update", help="Check for and install updates", action="store_true")
 args = parser.parse_args()
 
 # Arg vals being saved
@@ -62,6 +69,13 @@ format_choice = args.format
 is_single = args.single
 is_playlist = args.playlist
 
+if args.update:
+    if updatehelpers is None:
+        print("Error: updatehelpers.py not found next to py-dlp.py")
+        sys.exit(1)
+    updatehelpers.update_chk()
+    sys.exit(0)
+
 # Validate URL exists
 if not target_url:
     parser.print_help()
@@ -74,14 +88,27 @@ if is_single and is_playlist:
     print("Error: Choose either -single OR -playlist, not both.")
     sys.exit(1)
 
-# Unified output directory
-output_dir = args.savedir if args.savedir else down_path
+if args.download:
+    output_dir = Path(args.download).expanduser()
+else:
+    output_dir = Path(down_path).expanduser()
+
+try:
+    output_dir.mkdir(parents=True, exist_ok=True)
+except OSError as e:
+    print(f"Error: Cannot create output directory '{output_dir}': {e}")
+    sys.exit(1)
 
 # Check output directory exists
 if not os.path.exists(output_dir):
     print(f"Error: Output directory '{output_dir}' does not exist.")
     print(f"Create it manually with: mkdir -p '{output_dir}'")
     sys.exit(1)
+
+
+
+
+
 
 
 # Find JavaScript runtime (prioritize node, then deno)

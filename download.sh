@@ -34,18 +34,18 @@ has_osascript() { command -v osascript >/dev/null 2>&1; }
 # ---------------------------------------------------------------- dialog functions
 get_url_zenity() {
     zenity --entry --title="Py-DLP Download" \
-        --text="Paste the YouTube URL:" \
+        --text="Paste the URL:" \
         --entry-text="" \
         --width=500 --height=150
 }
 
 get_url_kdialog() {
-    kdialog --inputbox "Paste the YouTube URL:" --title "Py-DLP Download"
+    kdialog --inputbox "Paste the URL:" --title "Py-DLP Download"
 }
 
 get_url_applescript() {
     osascript -e "
-        set userInput to display dialog \"Paste the YouTube URL:\" ¬
+        set userInput to display dialog \"Paste the URL:\" ¬
             default answer \"\" ¬
             with title \"Py-DLP Download\" ¬
             with icon note
@@ -55,7 +55,7 @@ get_url_applescript() {
 
 get_url_terminal() {
     echo
-    read -p "Paste the YouTube URL: " url
+    read -p "Paste the URL: " url
     echo "$url"
 }
 
@@ -104,7 +104,8 @@ get_format_terminal() {
     echo "  [4] wav  - Uncompressed audio"
     echo "  [5] opus - Efficient audio"
     echo
-    read -p "Choice [1-5]: " choice
+    read -p "Choice [1-5, 1) mp4, 2) mp3,3) flac, 4) wav, 5) opus]:
+     " choice
     case "$choice" in
         1) echo "mp4" ;;
         2) echo "mp3" ;;
@@ -200,7 +201,6 @@ else
 fi
 
 echo
-echo -e "${YELLOW}Press Enter to close...${NC}"
-read -r
+
 
 exit $EXIT_CODE
