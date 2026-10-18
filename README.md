@@ -2,6 +2,60 @@
 
 A command-line media downloader built with `yt-dlp`, with cross-platform GUI helpers for beginners. Download videos, audio, and playlists from YouTube and many other platforms in multiple formats.
 
+## Installation
+
+## Linux / macOS
+### Prerequisites
+- Python 3.8 or higher
+- Node.js or Deno (recommended for YouTube compatibility)
+- curl (Linux/macOS) or PowerShell (Windows)
+- Linux / macOS
+### 1. Download the latest release
+```bash
+curl -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.1 -o py-dlp.tar.gz
+```
+### 2. Verify the checksum (replace with current hash)
+```bash
+echo "EXPECTED_HASH_HERE  py-dlp.tar.gz" | sha256sum -c -
+```
+### 3. Extract
+```bash
+tar xzf py-dlp.tar.gz
+```
+### 4. Run
+```bash
+python3 py-dlp.py -single "https://example.com/video"
+```
+## Windows
+### 1. Download the latest release
+```
+curl.exe -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.1 -o py-dlp.tar.gz
+```
+
+### 2. Verify the checksum (replace with current hash)
+```
+certutil -hashfile py-dlp.tar.gz SHA256
+```
+### Compare output with EXPECTED_HASH_HERE
+
+## 3. Extract (requires 7-Zip or similar)
+```
+7z x py-dlp.tar.gz
+7z x py-dlp.tar
+```
+## 4. Run
+```
+python py-dlp.py -single "https://example.com/video"
+```
+## Using the Self-Update Command
+Once installed, check for updates without manual downloads:
+```
+python3 py-dlp.py -update\
+```
+
+This fetches the manifest from the server, verifies the checksum, and replaces your local files automatically.
+
+
 ## Quick Start
 
 ### First Time Setup
