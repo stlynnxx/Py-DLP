@@ -9,23 +9,23 @@ A command-line media downloader built with `yt-dlp`, with cross-platform GUI hel
 ## Windows
 ### 1. Download the latest release
 ```
-curl.exe -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.1 -o py-dlp.tar.gz
+curl.exe -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.2 -o dwnloaderr.tar.gz
 ```
 
 ### 2. Verify the checksum (replace with current hash)
 ```
-certutil -hashfile py-dlp.tar.gz SHA256
+certutil -hashfile dwnloaderr.tar.gz SHA256
 ```
 ### Compare output with EXPECTED_HASH_HERE
 
 ## 3. Extract (requires 7-Zip or similar)
 ```
-7z x py-dlp.tar.gz
-7z x py-dlp.tar
+7z x dwnloaderr.tar.gz
+7z x dwnloaderr.tar
 ```
 ## 4. Run
 ```
-python py-dlp.py -single "https://example.com/video"
+python dwnloaderr.py -single "https://example.com/video"
 ```
 ## Using the Self-Update Command
 Once installed, check for updates without manual downloads:
@@ -44,19 +44,19 @@ This fetches the manifest from the server, verifies the checksum, and replaces y
 - Linux / macOS
 ### 1. Download the latest release
 ```bash
-curl -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.1 -o py-dlp.tar.gz
+curl -L https://eclecticelectronics.fly.dev/api/download/dwnloaderr/1.0.2 -o dwnloaderr.tar.gz
 ```
 ### 2. Verify the checksum (replace with current hash)
 ```bash
-echo "EXPECTED_HASH_HERE  py-dlp.tar.gz" | sha256sum -c -
+echo "EXPECTED_HASH_HERE  dwnloaderr.tar.gz" | sha256sum -c -
 ```
 ### 3. Extract
 ```bash
-tar xzf py-dlp.tar.gz
+tar xzf dwnloaderr.tar.gz
 ```
 ### 4. Run
 ```bash
-python3 py-dlp.py -single "https://example.com/video"
+python3 dwnloaderr.py -single "https://example.com/video"
 ```
 
 ## Quick Start
@@ -83,19 +83,19 @@ Both open a dialog box where you paste the URL and choose the format.
 
 ```bash
 # Single video
-python py-dlp.py -single "https://www.youtube.com/watch?v=iupPG8x_Zfo&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=8"
+python dwnloaderr.py -single "https://www.youtube.com/watch?v=iupPG8x_Zfo&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=8"
 
 # Audio only
-python py-dlp.py -single "URL" -format mp3
+python dwnloaderr.py -single "URL" -format mp3
 
 # Lossless audio
-python py-dlp.py -single "URL" -format flac
+python dwnloaderr.py -single "URL" -format flac
 
 # Playlist (max 50 items by default)
-python py-dlp.py -playlist "URL" -max 100
+python dwnloaderr.py -playlist "URL" -max 100
 
 # Custom output folder
-python py-dlp.py -single "URL" -savedir ~/Music/Songs
+python dwnloaderr.py -single "URL" -savedir ~/Music/Songs
 ```
 ### Windows Console Access
 
@@ -226,7 +226,7 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 
 ## FAQ
 Q: Can I download entire channels?\
-A: Yes, use the playlist URL with -max set to desired count. Example: python py-dlp.py -playlist "CHANNEL/videos" -max 100.
+A: Yes, use the playlist URL with -max set to desired count. Example: python dwnloaderr.py -playlist "CHANNEL/videos" -max 100.
 
 Q: Does this violate YouTube's Terms of Service?\
 A: This is a tool for extracting publicly available content. Use responsibly and respect copyright laws in your jurisdiction.
