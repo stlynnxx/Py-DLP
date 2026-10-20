@@ -1,6 +1,6 @@
 #Requires -Version 5.1
 <#
-    Py-DLP Setup for Windows
+    dwnloaderr Setup for Windows
     ------------------------
     Installs Python, Node.js, and FFmpeg via winget, then creates a
     virtual environment and installs yt-dlp.
@@ -108,7 +108,7 @@ function Get-PythonExe {
 
 # ==================================================================== banner
 Write-Host ''
-Write-Host '  Py-DLP Setup' -ForegroundColor White
+Write-Host '  dwnloaderr Setup' -ForegroundColor White
 Write-Host '  ============' -ForegroundColor White
 Write-Host ''
 
@@ -242,5 +242,5 @@ Write-Host '    Double-click  download.bat'
 Write-Host ''
 Write-Host '  Or use the command line:' -ForegroundColor Cyan
 Write-Host '    Double-click  activate.bat'
-Write-Host '    then type:    python py-dlp.py -single "URL" -format mp3'
+Write-Host '    then type:    python dwnloaderr.py -single "URL" -format mp3'
 Write-Host ''

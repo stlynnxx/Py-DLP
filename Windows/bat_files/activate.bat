@@ -1,6 +1,6 @@
 @echo off
 setlocal
-title Py-DLP Console
+title dwnloaderr Console
 cd /d "%~dp0"
 
 if not exist ".venv\Scripts\activate.bat" (
@@ -16,17 +16,17 @@ call ".venv\Scripts\activate.bat"
 
 echo.
 echo   ====================================
-echo     Py-DLP Console
+echo     dwnloaderr Console
 echo   ====================================
 echo.
 echo   The virtual environment is active.
 echo.
 echo   Examples:
 echo.
-echo     python py-dlp.py -single "https://youtube.com/watch?v=VIDEO_ID"
-echo     python py-dlp.py -single "URL" -format mp3
-echo     python py-dlp.py -playlist "URL" -max 50
-echo     python py-dlp.py --help
+echo     python dwnloaderr.py -single "https://youtube.com/watch?v=VIDEO_ID"
+echo     python dwnloaderr.py -single "URL" -format mp3
+echo     python dwnloaderr.py -playlist "URL" -max 50
+echo     python dwnloaderr.py --help
 echo.
 echo   Type "exit" to close this window.
 echo.

@@ -1,6 +1,6 @@
 @echo off
 setlocal
-title Py-DLP Download
+title dwnloaderr Download
 
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0download-gui.ps1" %*
 set "RC=%ERRORLEVEL%"

@@ -1,5 +1,5 @@
 """
-updatehelpers.py - self-update machinery for Py-DLP.
+updatehelpers.py - self-update machinery for dwnloaderr.
 
 Ported from Slippery Penguin's updater. Endpoint contract unchanged:
 
@@ -7,7 +7,7 @@ Ported from Slippery Penguin's updater. Endpoint contract unchanged:
 
     {
       "latest": "1.0.1",
-      "url":    "https://.../py-dlp-1.0.1.tar.gz",
+      "url":    "https://.../dwnloaderr-1.0.1.tar.gz",
       "hash":   "<sha256 of that tarball>"
     }
 """
@@ -24,7 +24,7 @@ import tarfile
 
 
 
-# Keep in step with py-dlp.py's __version__.
+# Keep in step with dwnloaderr.py's __version__.
 __version__ = "1.0.0"
 UPDATE_URL = "https://eclecticelectronics.fly.dev/api/check-update/dlp/"
 
@@ -55,7 +55,7 @@ def extract_update(tmp_path):
     with tarfile.open(tmp_path, "r:gz") as tar:
         tar.extractall(extract_dir, filter="data")
         # Changed from Slippery Penguin: this project's file list.
-        required = ["py-dlp.py", "updatehelpers.py"]
+        required = ["dwnloaderr.py", "updatehelpers.py"]
         extracted_names = os.listdir(extract_dir)
         for name in required:
             if name not in extracted_names:
@@ -117,7 +117,7 @@ def update_chk():
         try:
             # Changed from Slippery Penguin: the GTFOBins refresh step is
             # removed. It belongs to that project, not this one. Nothing
-            # replaces it - add a step here if Py-DLP ever needs one.
+            # replaces it - add a step here if dwnloaderr ever needs one.
             expected_hash = update_info.get("sha256")
             if not expected_hash:
                 print(

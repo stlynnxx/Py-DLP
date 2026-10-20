@@ -13,7 +13,7 @@ except ImportError:
     updatehelpers = None
 
 # Version tracking
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 # OS Discovery
 os_name = platform.system()
@@ -26,7 +26,7 @@ down_path = os.path.join(os.path.expanduser('~'), 'Downloads')
 output_dir = down_path
 
 # argparse config
-parser = argparse.ArgumentParser(prog="Py-DLP", description=f'Python Media Downloader v{__version__}')
+parser = argparse.ArgumentParser(prog="dwnloaderr", description=f'Python Media Downloader v{__version__}')
 parser.add_argument("-setup",  help="Setup script for fresh installs", action="store_true")
 parser.add_argument("-single", help='Single download', action='store_true')
 parser.add_argument("-download", "-d", help='Output directory path', type=str, default=None)
@@ -71,7 +71,7 @@ is_playlist = args.playlist
 
 if args.update:
     if updatehelpers is None:
-        print("Error: updatehelpers.py not found next to py-dlp.py")
+        print("Error: updatehelpers.py not found next to dwnloaderr.py")
         sys.exit(1)
     updatehelpers.update_chk()
     sys.exit(0)

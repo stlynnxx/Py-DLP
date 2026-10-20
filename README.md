@@ -1,4 +1,4 @@
-# Py-DLP — Python Media Downloader
+# dwnloaderr — Python Media Downloader
 
 A command-line media downloader built with `yt-dlp`, with cross-platform GUI helpers for beginners. Download videos, audio, and playlists from YouTube and many other platforms in multiple formats.
 
@@ -26,24 +26,24 @@ Both open a dialog box where you paste the URL and choose the format.
 
 ```bash
 # Single video
-python py-dlp.py -single "https://www.youtube.com/watch?v=iupPG8x_Zfo&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=8"
+python dwnloaderr.py -single "https://www.youtube.com/watch?v=iupPG8x_Zfo&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=8"
 
 # Audio only
-python py-dlp.py -single "URL" -format mp3
+python dwnloaderr.py -single "URL" -format mp3
 
 # Lossless audio
-python py-dlp.py -single "URL" -format flac
+python dwnloaderr.py -single "URL" -format flac
 
 # Playlist (max 50 items by default)
-python py-dlp.py -playlist "URL" -max 100
+python dwnloaderr.py -playlist "URL" -max 100
 
 # Custom output folder
-python py-dlp.py -single "URL" -savedir ~/Music/Songs
+python dwnloaderr.py -single "URL" -savedir ~/Music/Songs
 ```
 ### Windows Console Access
 
 Console Access (Windows)
-Double-click activate.bat to open a terminal window with the virtual environment already activated. From there you can run any python py-dlp.py command directly.
+Double-click activate.bat to open a terminal window with the virtual environment already activated. From there you can run any python dwnloaderr.py command directly.
 
 ### Command Reference
 #### Flags
@@ -80,19 +80,19 @@ can afford to do so, every penny helps out!
 # Common workflows
 
 ## High-quality music (lossless)
-python py-dlp.py -single "URL" -format flac
+python dwnloaderr.py -single "URL" -format flac
 
 ## Small video file
-python py-dlp.py -single "URL" -format opus
+python dwnloaderr.py -single "URL" -format opus
 
 ## Podcast from YouTube channel (playlist)
-python py-dlp.py -playlist "CHANNEL/videos" -max 20 -format mp3
+python dwnloaderr.py -playlist "CHANNEL/videos" -max 20 -format mp3
 
 ## Fast download (skip thumbnails/metadata)
-python py-dlp.py -single "URL" -nosubs -noembed -nometa -thumbnail
+python dwnloaderr.py -single "URL" -nosubs -noembed -nometa -thumbnail
 
 ## Nightly backup of favorite channel
-python py-dlp.py -playlist "URL" -max 10 -savedir ~/Backups/ChannelName
+python dwnloaderr.py -playlist "URL" -max 10 -savedir ~/Backups/ChannelName
 
 # Troubleshooting
 ## No JavaScript Runtime Found
@@ -117,7 +117,7 @@ Error: Requested format is not available
 
 ## Fix: List available formats first:
 
-python py-dlp.py -single "URL" --list-formats
+python dwnloaderr.py -single "URL" --list-formats
 
 # YouTube Challenge Page
 Error: YouTube served a challenge page
@@ -143,8 +143,8 @@ Remove-Item -Recurse -Force .venv
 
 # Security Notes
 Passwords: Never store passwords in plain text in scripts. Use environment variables:
-  export PY_DLP_PASSWORD="your_password"
-  python py-dlp.py -single "URL" -username user -pswd "$PY_DLP_PASSWORD"
+  export DWNLOADERR_PASSWORD="your_password"
+  python dwnloaderr.py -single "URL" -username user -pswd "$DWNLOADERR_PASSWORD"
 
 # Cookies
 Keep cookie files secure. Anyone with your cookies can access private content.
@@ -169,7 +169,7 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 
 ## FAQ
 Q: Can I download entire channels?\
-A: Yes, use the playlist URL with -max set to desired count. Example: python py-dlp.py -playlist "CHANNEL/videos" -max 100.
+A: Yes, use the playlist URL with -max set to desired count. Example: python dwnloaderr.py -playlist "CHANNEL/videos" -max 100.
 
 Q: Does this violate YouTube's Terms of Service?\
 A: This is a tool for extracting publicly available content. Use responsibly and respect copyright laws in your jurisdiction.

@@ -1,9 +1,9 @@
 #Requires -Version 5.1
 <#
-    Py-DLP graphical downloader.
+    dwnloaderr graphical downloader.
 
     Shows a single window: URL field, format dropdown, Download button.
-    Then runs py-dlp.py and streams its output to the console.
+    Then runs dwnloaderr.py and streams its output to the console.
 
     Called by download.bat. Can also be run directly:
         powershell -ExecutionPolicy Bypass -File download-gui.ps1
@@ -25,7 +25,7 @@ Add-Type -AssemblyName System.Drawing
 
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 $VenvPython = Join-Path $ScriptDir '.venv\Scripts\python.exe'
-$MainScript = Join-Path $ScriptDir 'py-dlp.py'
+$MainScript = Join-Path $ScriptDir 'dwnloaderr.py'
 
 # ------------------------------------------------------------- sanity checks
 if (-not (Test-Path $VenvPython)) {
@@ -40,7 +40,7 @@ if (-not (Test-Path $VenvPython)) {
 
 if (-not (Test-Path $MainScript)) {
     Write-Host ''
-    Write-Host "  Could not find py-dlp.py next to this script." -ForegroundColor Red
+    Write-Host "  Could not find dwnloaderr.py next to this script." -ForegroundColor Red
     Write-Host "  Expected: $MainScript"
     Write-Host ''
     if (-not $NoPause) { Read-Host '  Press Enter to close' }
@@ -52,7 +52,7 @@ function Show-InputDialog {
     param([string]$PresetUrl, [string]$PresetFormat)
 
     $form                 = New-Object System.Windows.Forms.Form
-    $form.Text            = 'Py-DLP Download'
+    $form.Text            = 'dwnloaderr Download'
     $form.Size            = New-Object System.Drawing.Size(600, 250)
     $form.StartPosition   = 'CenterScreen'
     $form.FormBorderStyle = 'FixedDialog'
@@ -162,7 +162,7 @@ if ([string]::IsNullOrWhiteSpace($selection.Url)) {
 # ------------------------------------------------------------------ download
 Write-Host ''
 Write-Host '  ====================================' -ForegroundColor Cyan
-Write-Host '    Py-DLP Download' -ForegroundColor Cyan
+Write-Host '    dwnloaderr Download' -ForegroundColor Cyan
 Write-Host '  ====================================' -ForegroundColor Cyan
 Write-Host ''
 Write-Host "  URL:    $($selection.Url)"

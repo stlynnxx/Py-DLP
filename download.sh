@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# download.sh - Py-DLP Download Helper
+# download.sh - dwnloaderr Download Helper
 # Cross-platform: Linux, macOS, Windows (WSL)
 # Usage: ./download.sh  (or double-click if allowed)
 
@@ -33,21 +33,21 @@ has_osascript() { command -v osascript >/dev/null 2>&1; }
 
 # ---------------------------------------------------------------- dialog functions
 get_url_zenity() {
-    zenity --entry --title="Py-DLP Download" \
+    zenity --entry --title="dwnloaderr Download" \
         --text="Paste the URL:" \
         --entry-text="" \
         --width=500 --height=150
 }
 
 get_url_kdialog() {
-    kdialog --inputbox "Paste the URL:" --title "Py-DLP Download"
+    kdialog --inputbox "Paste the URL:" --title "dwnloaderr Download"
 }
 
 get_url_applescript() {
     osascript -e "
         set userInput to display dialog \"Paste the URL:\" ¬
             default answer \"\" ¬
-            with title \"Py-DLP Download\" ¬
+            with title \"dwnloaderr Download\" ¬
             with icon note
         text returned of userInput
     "
@@ -81,7 +81,7 @@ get_format_gui() {
             osascript -e "
                 set formatList to {\"mp4\", \"mp3\", \"flac\", \"wav\", \"opus\"}
                 set descList to {\"Best quality video\", \"Audio only\", \"Lossless audio\", \"Uncompressed audio\", \"Efficient audio\"}
-                set selectedItem to choose from list formatList with prompt \"Select format:\" with title \"Py-DLP Download\" default items {\"mp3\"}
+                set selectedItem to choose from list formatList with prompt \"Select format:\" with title \"dwnloaderr Download\" default items {\"mp3\"}
                 if selectedItem is false then
                     return \"\"
                 else
@@ -120,7 +120,7 @@ get_format_terminal() {
 clear
 echo
 echo -e "${BLUE}=====================================${NC}"
-echo -e "${BLUE}       Py-DLP Download${NC}"
+echo -e "${BLUE}       dwnloaderr Download${NC}"
 echo -e "${BLUE}=====================================${NC}"
 echo
 
@@ -186,7 +186,7 @@ else
 fi
 
 # Run download
-python py-dlp.py -single "$URL" -format "$FORMAT"
+python dwnloaderr.py -single "$URL" -format "$FORMAT"
 
 EXIT_CODE=$?
 

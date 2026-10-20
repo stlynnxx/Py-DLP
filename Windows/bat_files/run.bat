@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-title Py-DLP
+title dwnloaderr
 
 rem ---------------------------------------------------------------- WSL probe
 set "HAVE_WSL=0"
@@ -13,7 +13,7 @@ set "HAVE_WSL=1"
 rem ------------------------------------------------------------- Offer choice
 cls
 echo.
-echo   Py-DLP
+echo   dwnloaderr
 echo   ======
 echo.
 echo   This project can run in two places:
