@@ -16,7 +16,6 @@ curl.exe -L https://eclecticelectronics.fly.dev/api/download/dlp/1.0.2 -o dwnloa
 ```
 certutil -hashfile dwnloaderr.tar.gz SHA256
 ```
-### Compare output with EXPECTED_HASH_HERE
 
 ## 3. Extract (requires 7-Zip or similar)
 ```
