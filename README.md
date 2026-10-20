@@ -2,6 +2,8 @@
 
 A command-line media downloader built with `yt-dlp`, with cross-platform GUI helpers for beginners. Download videos, audio, and playlists from YouTube and many other platforms in multiple formats.
 
+dwnloaderr is searching for contributors. If there are any features or refinements you'd like to see implemented, feel free to tackle it yourself!
+Fork the repo, and send a PR my way for review. 
 
 
 # Installation
