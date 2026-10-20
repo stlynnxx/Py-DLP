@@ -222,7 +222,8 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 - CI/CD pipeline for automated testing
 - Docker container for easy deployment
 - Unit test coverage for edge cases
-
+- Anything you want to see added! If there's a feature or refinement you'd like to see and want to tackle it,
+feel free to fork it and send over a pull request for review!
 ## FAQ
 Q: Can I download entire channels?\
 A: Yes, use the playlist URL with -max set to desired count. Example: python dwnloaderr.py -playlist "CHANNEL/videos" -max 100.
